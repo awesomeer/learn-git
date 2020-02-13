@@ -59,6 +59,12 @@ public class Engine {
   // Return true if the board is full
   // Return false if not
   public boolean checkTie() {
+	  for(int i = 0; i < 3; i++){
+		  for(int j = 0; j < 3; j++){
+			  if(board[i][j] == " ")
+				  return false;
+		  }
+	  }
     return true;
   }
 
@@ -82,6 +88,12 @@ public class Engine {
       }
     }
 
+    // Diagonal right to left
+    if (!board[0][2].equals(" ") && board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0])) {
+      if (board[0][2].equals("X")) {
+        return 1;
+      } else {
+        return 2;
     // Diagonal left to right
     if (!board[0][0].equals(" ") && board[0][0].equals(board[1][1]) && board[1][1].equals(board[2][2])) {
       if (board[0][0].equals("X")) {
@@ -91,12 +103,6 @@ public class Engine {
       }
     }
 
-    // Diagonal right to left
-    if (!board[0][2].equals(" ") && board[0][2].equals(board[1][1]) && board[1][1].equals(board[2][0])) {
-      if (board[0][2].equals("X")) {
-        return 1;
-      } else {
-        return 2;
       }
     }
 
